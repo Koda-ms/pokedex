@@ -1,9 +1,17 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Home from "./pages/Home";
+
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   return (
-    <div>
-      <h1>HELLO</h1>
-    </div>
+    <BrowserRouter>
+      <ToastContainer autoClose={3000}/>
+      <Routes>
+        <Route path="/" element={ <Home/> }/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
