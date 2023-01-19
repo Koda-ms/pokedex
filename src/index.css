@@ -10,6 +10,7 @@
 
 body{
   background-color: #ddd;
+  background: linear-gradient(to right, rgb(175, 211, 255), rgb(61, 144, 245));
   font-family: 'Chakra Petch';
 }
 
