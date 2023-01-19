@@ -5,7 +5,7 @@ const api = axios.create({
 });
 export default api;
 
-export const listPokemons = async (limit = 50, offset = 0) => {
+export const listPokemons = async (limit = 21, offset = 0) => {
     try {
         const response = await api.get(`/pokemon?limit=${limit}&offset${offset}`);
         //console.log(response.data.results);
