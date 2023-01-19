@@ -12,6 +12,12 @@
     padding: 0 100px;
 }
 
+.logo a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .logo img{
     width: 50%;
     height: 50%;
@@ -28,6 +34,13 @@
     background: transparent;
     padding: 0 10px;
     border: 0;
+    transition: all .5s;
+}
+
+.actions button:hover{
+    background-color: #064082;
+    padding: 16px 10px;
+    border-radius: 1px;
 }
 
 .actions a{
@@ -48,7 +61,23 @@
         width: 100%;
         height: 50px;
         position: relative;
+        align-items: stretch;
     }
 
+    .logo{
+        padding: 0 30px;
+    }
 
+    /* .logo a{
+        position: fixed;
+    } */
+
+    .logo img{
+        width: 120px;
+        height: 50px;
+    }
+
+    .actions{
+        margin: 0 40px;
+    }
 }

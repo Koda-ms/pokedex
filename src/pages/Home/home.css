@@ -17,6 +17,7 @@
     width: 500px;
     box-shadow: 1px 1px 1px 0.5px rgb(154, 154, 154);
     background-color: #eee;
+    margin-bottom: 40px;
 }
 
 .search-area input{
@@ -41,7 +42,7 @@
 
 .content-area{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(7,1fr);
     grid-gap: 15px;
     align-items: center;
     justify-content: center;
@@ -52,12 +53,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    
     border-radius: 4px;
-    padding: 3px;
-    background-color: #99aaab;
+    padding: 2px 3px;
+    background-color: #ffffff;
     opacity: 0.9;
     transition: all 0.8s;
+    box-shadow: 1px 1px 1px 0.5px rgb(154, 154, 154);
 }
 
 .content:hover{
@@ -75,13 +77,22 @@
 .content table{
     display: flex;
     align-items: center;
-    max-width: 20em;
+    max-width: 10em;
 }
 
+/* .card{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+} */
+
 table td{
-    border: 1px solid #999999;
-    padding: 4px 10px;
-    background-color: gainsboro;
+    border-radius: 4px;
+    padding: 3px 10px;
+    background-color: rgb(30, 30, 30);
+    color:white;
+    font-size: 14px;
 }
 
 @media screen and (max-width: 550px){
@@ -93,5 +104,25 @@ table td{
 
     .search-area{
         width: 450px;
+    }
+
+    .content-area{
+        grid-gap: 10px;
+    }
+
+    table td{
+        padding: 4px 7px;
+    }
+}
+
+@media screen and (max-width: 1030px){
+    .content-area{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+
+@media screen and (max-width: 770px){
+    .content-area{
+        grid-template-columns: repeat(2,1fr);
     }
 }
