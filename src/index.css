@@ -1,5 +1,5 @@
 /* DEFAULT SETTINGS */
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Roboto&display=swap');
 
 * {
   margin: 0;
@@ -11,7 +11,7 @@
 body{
   background-color: #ddd;
   background: linear-gradient(to right, rgb(175, 211, 255), rgb(61, 144, 245));
-  font-family: 'Chakra Petch';
+  font-family: 'Roboto';
 }
 
 button{
