@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { FiSearch } from 'react-icons/fi';
+import { FiPlusCircle, FiSearch } from 'react-icons/fi';
 import './home.css';
 import api, { getPokemonsData, listPokemons } from '../../services/api';
+import Modal from '../../components/Modal';
 
 function Home(){
     const[loading, setLoading] = useState(true);
     const[pokemonName, setPokemonName] = useState('');
     const[pokemonData, setPokemonData] = useState([]);
+    const[pokemonDetail, setPokemonDetail] = useState([]);
+    const[postModal, setPostModal] = useState(false);
 
     useEffect(() => {
         async function loadPokemons(){
@@ -49,11 +52,16 @@ function Home(){
         showPokemon();
     }
 
+    function toggleModal(pokemon){
+        setPostModal(!postModal);
+        setPokemonDetail(pokemon);
+    }
+
     return(
         <div className='container'>
             <form onSubmit={handleSearch}>
                 <label className='search-area'>
-                    <input type='text' placeholder='Enter the pokemon name'
+                    <input type='text' placeholder='Search pokemon'
                     onChange={(e) => setPokemonName(e.target.value.toLowerCase())}/>
                     <button type='submit'>
                         <FiSearch className='search-icon' size={18} color='#000'/>
@@ -64,12 +72,15 @@ function Home(){
             {loading ? (<div>Loading info, hold on...</div>)
             : (
                 <div className='content-area'>
-                    {pokemonData.map((pokemon) => {
+                {pokemonData.map((pokemon) => {
                         return(
                             <div className='content' key={pokemon.id}>
-                                <h4>{pokemon.name}</h4>
+                                <div>
+                                    <span>#{pokemon.id}</span>
+                                    <h4 onClick={() => toggleModal(pokemon)}>{pokemon.name}</h4>
+                                </div>
                                 <img src={pokemon.sprites["front_default"]} alt=''/>
-                                <table>
+                                <table className='tb-pokemons'>
                                     <tbody>
                                         <tr>
                                             <td>{pokemon.types[0].type.name}</td>
@@ -84,6 +95,10 @@ function Home(){
                         );
                     })}
                 </div>
+            )}
+            {postModal && (
+                <Modal pokemon={pokemonDetail}
+                close={toggleModal}/>
             )}
         </div>
     );
