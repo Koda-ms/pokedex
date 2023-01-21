@@ -63,8 +63,23 @@
 }
 
 .content:hover{
-    cursor: pointer;
     transform: scale(1.1);
+}
+
+.content div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.content span{
+    margin: 0 5px;
+    font-size: 13px;
+}
+
+.content h4:hover{
+    cursor: pointer;
+    color: #064082;
 }
 
 .content img{
@@ -74,20 +89,27 @@
     object-fit: cover;
 }
 
-.content table{
+.content .tb-pokemons{
     display: flex;
     align-items: center;
     max-width: 10em;
 }
 
-/* .card{
+/* .head{
     display: flex;
     flex-direction: row;
+}
+
+.btn-see-more{
+    display: flex;
     justify-content: center;
     align-items: center;
+    margin-left: 20px;
+    border: 0;
+    background-color: rgb(255, 249, 249);
 } */
 
-table td{
+.tb-pokemons td{
     border-radius: 4px;
     padding: 3px 10px;
     background-color: rgb(30, 30, 30);
@@ -110,19 +132,19 @@ table td{
         grid-gap: 10px;
     }
 
-    table td{
+    .tb-pokemons td{
         padding: 4px 7px;
     }
 }
 
 @media screen and (max-width: 1030px){
     .content-area{
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(5,1fr);
     }
 }
 
 @media screen and (max-width: 770px){
     .content-area{
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(3,1fr);
     }
 }
