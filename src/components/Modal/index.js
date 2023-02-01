@@ -1,27 +1,33 @@
-import { useState } from 'react';
-import './modal.css';
+import { useEffect, useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 import { toast } from 'react-toastify';
+import './modal.css';
 
 function Modal({ pokemon, close }){
     const[favList, setFavList] = useState([]);
 
+    useEffect(() => {
+        const pokeFav = localStorage.getItem("@pokedex");
+        setFavList(JSON.parse(pokeFav) || []);
+    }, []);
+
     function handleAddFavorite(){
         const myList = localStorage.getItem("@pokedex");
 
-        setFavList(JSON.parse(myList) || []);
+        const saveFav = JSON.parse(myList) || [];
+
+        const hasPokemon = saveFav.some((saveFav) => saveFav.id === pokemon.id)
         
-        const hasPokemon = favList.some((savedPokemon) => savedPokemon.id === pokemon.id)
-    
         if(hasPokemon){
             toast.warn("This pokemon already exists in the list");
             return;
         }
-
-        favList.push(pokemon);
-        localStorage.setItem("@pokedex", JSON.stringify(favList));
-
+        
+        saveFav.push(pokemon);
+        localStorage.setItem("@pokedex", JSON.stringify(saveFav));
+        
+        console.log(saveFav);
         toast.success("Pokemon added successfully");
     }
 
@@ -44,7 +50,7 @@ function Modal({ pokemon, close }){
                             <h1>{pokemon.name}</h1> 
                             {/* TO CHECK LATER */}
                             <button onClick={handleAddFavorite}> 
-                                {favList.findIndex((poke) => poke.id === pokemon.id) ? (<AiFillHeart size={18} color='#000'/>)
+                                {favList.some((poke) => poke.id === pokemon.id) ? (<AiFillHeart size={18} color='#000'/>)
                                 : (<AiOutlineHeart size={18} color='#000'/>)
                                 }
                             </button>
