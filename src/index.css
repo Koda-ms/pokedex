@@ -9,8 +9,7 @@
 }
 
 body{
-  background-color: #ddd;
-  background: linear-gradient(to right, rgb(175, 211, 255), rgb(61, 144, 245));
+  background: linear-gradient(to right, #DDD, rgb(205, 223, 245));
   font-family: 'Roboto';
 }
 
