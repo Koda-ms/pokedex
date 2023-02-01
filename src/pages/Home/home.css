@@ -9,15 +9,32 @@
     margin-top: 25px;
 }
 
+.search-filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.slc-type{
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    padding: 7px;
+    margin-left: 12px;
+    background-color: #eee;
+    color: #000;
+}
+
 .search-area{
     display: flex;
     align-items: center;
     border: 0;
     border-radius: 4px;
     width: 500px;
-    box-shadow: 1px 1px 1px 0.5px rgb(154, 154, 154);
+    /* box-shadow: 1px 1px 1px 0.5px rgb(154, 154, 154); */
     background-color: #eee;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .search-area input{
@@ -59,7 +76,67 @@
     background-color: #ffffff;
     opacity: 0.9;
     transition: all 0.8s;
-    box-shadow: 1px 1px 1px 0.5px rgb(154, 154, 154);
+    /* box-shadow: 1px 1px 1px 0.5px rgb(154, 154, 154); */
+}
+
+.steel {
+	background-color: #f4f4f4;
+}
+
+.fire {
+	background-color: #FDDFDF;
+}
+
+.grass {
+	background-color: #DEFDE0;
+}
+
+.electric {
+	background-color: #FCF7DE;
+}
+
+.water, .ice {
+	background-color: #DEF3FD;
+}
+
+.ground {
+	background-color: #f4e7da;
+}
+
+.rock {
+	background-color: #d5d5d4;
+}
+
+.fairy {
+	background-color: #fceaff;
+}
+
+.poison {
+	background-color: #98d7a5;
+}
+
+.bug {
+	background-color: #f8d5a3;
+}
+
+.dragon {
+	background-color: #97b3e6;
+}
+
+.psychic {
+	background-color: #eaeda1;
+}
+
+.flying {
+	background-color: #F5F5F5;
+}
+
+.fighting {
+	background-color: #E6E0D4;
+}
+
+.normal {
+	background-color: #F5F5F5;
 }
 
 .content:hover{
@@ -70,6 +147,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-transform: capitalize;
 }
 
 .content span{
@@ -115,6 +193,33 @@
     background-color: rgb(30, 30, 30);
     color:white;
     font-size: 14px;
+}
+
+.page-num{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #121212;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.pagination-right{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 4%;
+    border: 0;
+    background: transparent;
+}
+
+.pagination-left{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 4%;
+    border: 0;
+    background: transparent;
 }
 
 @media screen and (max-width: 550px){
