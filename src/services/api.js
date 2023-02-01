@@ -5,11 +5,12 @@ const api = axios.create({
 });
 export default api;
 
-export const listPokemons = async (limit = 21, offset = 0) => {
+export const listPokemons = async (limit, offset) => {
     try {
-        const response = await api.get(`/pokemon?limit=${limit}&offset${offset}`);
-        //console.log(response.data.results);
-        return await response.data.results; 
+        //console.log('limit: ', limit, ' offset: ', offset);
+        const response = await api.get(`/pokemon?limit=${limit}&offset=${offset}`);
+       
+        return await response.data; 
     } catch (error) {
         console.log('error listing: ', error);
     }
@@ -18,9 +19,19 @@ export const listPokemons = async (limit = 21, offset = 0) => {
 export const getPokemonsData = async (url) => {
     try {
         const response = await api.get(url);
-        //console.log(response.data);
+        
         return await response.data; 
     } catch (error) {
         console.log('error on data: ', error);
+    }
+}
+
+export const getPokemonsTypes = async () => {
+    try {
+        const res = await api.get('type');
+        //console.log(res.data.results);
+        return await res.data.results;
+    } catch (error) {
+        console.log('error on seraching types: ', error);
     }
 }
